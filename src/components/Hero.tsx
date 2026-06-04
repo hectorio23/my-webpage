@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Terminal, Github, Linkedin, Mail } from "lucide-react";
+import { Terminal, Github, Mail } from "lucide-react";
 
 const Hero = () => {
   return (

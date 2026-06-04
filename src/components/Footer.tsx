@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Terminal } from "lucide-react";
+import { Github, Mail, Terminal } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -18,14 +18,6 @@ const Footer = () => {
               className="text-muted-foreground hover:text-accent transition-colors"
             >
               <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-accent transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:contact@example.com"
