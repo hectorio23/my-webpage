@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM nginx:alpine-slim AS runtime
 
-# Usuario no-root ya viene configurado en nginx:alpine-slim (nginx uid=101)
+# User no-root was configured in nginx:alpine-slim (nginx uid=101)
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Config hardened de nginx
