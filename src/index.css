@@ -6,38 +6,26 @@
 
 @layer base {
   :root {
-    /* Dark theme by default - GitHub inspired */
     --background: 215 28% 7%;
     --foreground: 210 17% 98%;
-
     --card: 215 25% 9%;
     --card-foreground: 210 17% 98%;
-
     --popover: 215 25% 9%;
     --popover-foreground: 210 17% 98%;
-
     --primary: 210 17% 98%;
     --primary-foreground: 215 28% 7%;
-
     --secondary: 215 20% 14%;
     --secondary-foreground: 210 17% 82%;
-
     --muted: 215 20% 14%;
     --muted-foreground: 215 14% 55%;
-
-    /* Terminal green accent */
     --accent: 140 55% 50%;
     --accent-foreground: 215 28% 7%;
-
     --destructive: 0 72% 51%;
     --destructive-foreground: 210 17% 98%;
-
     --border: 215 20% 18%;
     --input: 215 20% 18%;
     --ring: 140 55% 50%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 215 25% 9%;
     --sidebar-foreground: 210 17% 82%;
     --sidebar-primary: 140 55% 50%;
@@ -50,10 +38,8 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
@@ -64,15 +50,43 @@
   .text-gradient {
     @apply bg-gradient-to-r from-accent via-emerald-400 to-cyan-400 bg-clip-text text-transparent;
   }
-
   .bg-grid {
-    background-image: 
+    background-image:
       linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
     background-size: 64px 64px;
   }
-
-  .shadow-glow {
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.4);
+  .bg-grid-fine {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
+  .shadow-glow { box-shadow: 0 0 20px hsl(var(--accent) / 0.4); }
+  .shadow-glow-sm { box-shadow: 0 0 10px hsl(var(--accent) / 0.25); }
+  .border-glow {
+    border-color: hsl(var(--accent) / 0.6);
+    box-shadow: 0 0 14px hsl(var(--accent) / 0.2), inset 0 0 12px hsl(var(--accent) / 0.05);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.terminal-scanline { position: relative; overflow: hidden; }
+.terminal-scanline::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to bottom, transparent, hsl(var(--accent) / 0.07), transparent);
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
 }
