@@ -49,8 +49,9 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
         >
-          Passionate software developer focused on creatively solving problems. 
-          From intermediate to advanced levels, I tackle challenges that enhance my programming skills.
+          Passionate software developer and networking professional focused on creatively solving problems.
+          CCNA certified with deep expertise in switching, routing, and network infrastructure —
+          from intermediate to advanced levels, I tackle challenges that enhance both my programming and networking skills.
         </motion.p>
 
         <motion.div
@@ -81,12 +82,28 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-3"
+          className="flex flex-wrap justify-center gap-3 mb-3"
         >
-          {["Python", "JavaScript", "C++", "C#", "SQL", "Linux"].map((tech, index) => (
+          {["Python", "JavaScript", "C++", "C#", "SQL", "Linux"].map((tech) => (
             <span
               key={tech}
               className="px-3 py-1 text-sm font-mono text-accent bg-accent/10 border border-accent/20 rounded-md"
+            >
+              {tech}
+            </span>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-wrap justify-center gap-3"
+        >
+          {["Switching", "Advanced Routing", "Network Infrastructure"].map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 text-sm font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-md"
             >
               {tech}
             </span>

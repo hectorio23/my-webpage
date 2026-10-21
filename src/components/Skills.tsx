@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Server, Shield, Terminal } from "lucide-react";
+import { Code, Server, Shield, Terminal, Network } from "lucide-react";
 
 const skills = [
   {
@@ -25,6 +25,12 @@ const skills = [
     title: "Security",
     items: ["Pentesting Basics", "Network Security"],
     description: "Aspiring Professional Pentester"
+  },
+  {
+    icon: Network,
+    title: "Networking",
+    items: ["Switching", "Advanced Routing", "STP", "VLANs", "IP Services", "OSPF", "EIGRP", "ACLs", "NAT/PAT"],
+    description: "CCNA Certified — Deep networking expertise"
   }
 ];
 
@@ -49,7 +55,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.title}
